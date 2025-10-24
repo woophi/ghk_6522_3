@@ -9,8 +9,7 @@ declare global {
 
 type Payload = {
   sum: number;
-  ticker: string;
-  smart: 'on' | 'off';
+  active: string;
 };
 
 export const sendDataToGA = async (payload: Payload) => {
@@ -21,7 +20,7 @@ export const sendDataToGA = async (payload: Payload) => {
     }-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
 
     await fetch(
-      'https://script.google.com/macros/s/AKfycbzZRZfThLlcA2oORQM9TBu_LiPseC1gfQ7i7peTmaI3UI86hCXfJkAPDxIo8XbsjfLcog/exec',
+      'https://script.google.com/macros/s/AKfycbzSt2FqshLAFPwRbdhs6KootWY3m5zAAJUxjIRy0LOyZdx70Z9e1V7-81GCgOySWmwW/exec',
       {
         redirect: 'follow',
         method: 'POST',

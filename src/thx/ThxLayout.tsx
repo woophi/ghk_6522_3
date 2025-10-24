@@ -10,15 +10,15 @@ export const ThxLayout = ({ link }: { link: string }) => {
       <div className={thxSt.container}>
         <img src={sparkles} width={80} height={80} className={thxSt.rocket} />
         <Typography.TitleResponsive style={{ margin: '24px 0 12px' }} font="system" tag="h1" view="small" weight="medium">
-          Не удалось выставить заявку
+          Заявка не размещена
         </Typography.TitleResponsive>
         <Typography.Text tag="p" view="primary-medium" defaultMargins={false}>
-          Попробуй еще раз
+          Чтобы получить подарок, совершите сделку на 10 000 руб сегодня. Начислим акции 30 ноября 2025 года.
         </Typography.Text>
       </div>
       <div className={appSt.bottomBtn}>
         <ButtonMobile block view="secondary" href={link}>
-          Попробовать еще раз
+          К заявке
         </ButtonMobile>
       </div>
     </>

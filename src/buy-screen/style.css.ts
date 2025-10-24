@@ -63,6 +63,13 @@ const btmContent = style({
   padding: 0,
 });
 
+const box = style({
+  border: '1px solid #2288FA',
+  padding: '12px 16px',
+  borderRadius: '16px',
+  backgroundColor: '#E4F0FF',
+});
+
 export const bsSt = {
   bottomBtn,
   container,
@@ -73,4 +80,5 @@ export const bsSt = {
   rowSmall,
   row,
   btmContent,
+  box,
 };

@@ -4,8 +4,10 @@ import { ButtonMobile } from '@alfalab/core-components/button/mobile';
 import { Gap } from '@alfalab/core-components/gap';
 import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
 import { NumberInput } from '@alfalab/core-components/number-input';
+import { PureCell } from '@alfalab/core-components/pure-cell';
 import { Typography } from '@alfalab/core-components/typography';
 import { ArrowRightMIcon } from '@alfalab/icons-glyph/ArrowRightMIcon';
+import { GiftBoxMIcon } from '@alfalab/icons-glyph/GiftBoxMIcon';
 import { InformationCircleLineSIcon } from '@alfalab/icons-glyph/InformationCircleLineSIcon';
 import { useState } from 'react';
 import rubIcon from '../assets/rub.png';
@@ -33,8 +35,7 @@ export const BuyScreen = ({ stockItem, setThx }: Props) => {
     setLoading(true);
     sendDataToGA({
       sum: stockItem.price_today * lots * stockItem.lot,
-      ticker: stockItem.ticker,
-      smart: 'off',
+      active: stockItem.ticker,
     }).then(() => {
       LS.setItem(LSKeys.ShowThx, true);
       setThx(true);
@@ -75,6 +76,26 @@ export const BuyScreen = ({ stockItem, setThx }: Props) => {
               </Typography.Text>
             </div>
           )}
+        </div>
+
+        <div>
+          <PureCell
+            className={bsSt.box}
+            onClick={() => {
+              window.gtag('event', '6522_informer_active', { ticker: stockItem.ticker, var: 'var3' });
+            }}
+          >
+            <PureCell.Graphics>
+              <GiftBoxMIcon color="#2288FA" />
+            </PureCell.Graphics>
+            <PureCell.Content>
+              <PureCell.Main>
+                <Typography.Text color="secondary" view="primary-small">
+                  Совершите сделку сегодня на 10 000₽ и получите 3 акции Газпрома в подарок
+                </Typography.Text>
+              </PureCell.Main>
+            </PureCell.Content>
+          </PureCell>
         </div>
 
         <div style={{ marginTop: '12px' }}>

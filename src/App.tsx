@@ -10,7 +10,7 @@ import { appSt } from './style.css';
 import { ThxLayout } from './thx/ThxLayout';
 
 export const App = () => {
-  const [thxShow, setThx] = useState(LS.getItem(LSKeys.ShowThx, false));
+  const [thxShow, setThx] = useState(false);
   const [selectedStockTicker, setSelectedStockTicker] = useState<string | null>(
     LS.getItem(LSKeys.ShowThx, false) ? LS.getItem(LSKeys.SelectedStockTicker, null) : null,
   );
@@ -61,10 +61,16 @@ export const App = () => {
             key={stock.ticker}
             stockItem={stock}
             onClick={s => {
-              window.gtag('event', '6292_card_active', {
+              window.gtag('event', '6522_buy_active', {
                 var: 'var3',
                 ticker: s.ticker,
               });
+
+              if (LS.getItem(LSKeys.ShowThx, false)) {
+                window.location.replace(stock.link);
+                return;
+              }
+
               LS.setItem(LSKeys.SelectedStockTicker, s.ticker);
               setSelectedStockTicker(s.ticker);
             }}
